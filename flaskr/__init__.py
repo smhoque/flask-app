@@ -2,6 +2,7 @@ import os
 from flask import Flask, app
 from . import db
 from . import auth
+from . import blog
 
 
 
@@ -29,6 +30,7 @@ def create_app(test_config=None):
         return 'Hello, World!'
     db.init_app(app)
     app.register_blueprint(auth.bp)
+    app.add_url_rule('/', endpoint='index')
     return app
 
 
